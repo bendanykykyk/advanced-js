@@ -1,3 +1,3 @@
-"use strict"
+"use strict";
 
-false.foo = "abc"
+false.foo = "abc";

@@ -1,10 +1,10 @@
 var obj = {
   name: "why",
-  age: 18
-}
+  age: 18,
+};
 
 Object.defineProperty(obj, "address", {
-  value: "北京市"
-})
+  value: "北京市",
+});
 
-console.log(obj)
+console.log(obj);

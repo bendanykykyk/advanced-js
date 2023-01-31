@@ -1,11 +1,10 @@
 var obj = {
   name: "why",
-  age: 18
-}
+  age: 18,
+};
 
 obj.__proto__ = {
-  address: "北京市"
-}
+  address: "北京市",
+};
 
-console.log(obj)
-
+console.log(obj);

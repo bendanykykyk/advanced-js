@@ -1,47 +1,49 @@
-var names = ['abc', 'cba', 'nba']
+var names = ["abc", "cba", "nba"];
 
 class Person {
   constructor(name, age) {
-    this.name = name
-    this.age = age
-    this._address = '广州市'
+    this.name = name;
+    this.age = age;
+    this._address = "广州市";
   }
 
   // 普通的实例方法
   // 创建出来的对象进行访问
   // var p = new Person()
   // p.eating()
+
+  // 会定义到Person.prototype上
   eating() {
-    console.log(this.name + ' eating~')
+    console.log(this.name + " eating~");
   }
 
   running() {
-    console.log(this.name + ' running~')
+    console.log(this.name + " running~");
   }
 
   // 类的访问器方法
   get address() {
-    console.log('拦截访问操作')
-    return this._address
+    console.log("拦截访问操作");
+    return this._address;
   }
 
   set address(newAddress) {
-    console.log('拦截设置操作')
-    this._address = newAddress
+    console.log("拦截设置操作");
+    this._address = newAddress;
   }
 
   // 类的静态方法(类方法)
   // Person.createPerson()
   static randomPerson() {
-    var nameIndex = Math.floor(Math.random() * names.length)
-    var name = names[nameIndex]
-    var age = Math.floor(Math.random() * 100)
-    return new Person(name, age)
+    var nameIndex = Math.floor(Math.random() * names.length);
+    var name = names[nameIndex];
+    var age = Math.floor(Math.random() * 100);
+    return new Person(name, age);
   }
 }
 
-var p = new Person('why', 18)
-console.log(Object.getOwnPropertyDescriptors(p.__proto__))
+var p = new Person("why", 18);
+console.log(Object.getOwnPropertyDescriptors(p.__proto__));
 // p.eating()
 // p.running()
 
