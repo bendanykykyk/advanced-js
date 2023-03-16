@@ -11,13 +11,12 @@
 // 对象的响应式
 const obj = {
   name: "why",
-  age: 18
-}
+  age: 18,
+};
 
-const newName = obj.name
-console.log("你好啊, 李银河")
-console.log("Hello World")
-console.log(obj.name) // 100行
+const newName = obj.name;
+console.log("你好啊, 李银河");
+console.log("Hello World");
+console.log(obj.name); // 100行
 
-obj.name = "kobe"
-
+obj.name = "kobe";

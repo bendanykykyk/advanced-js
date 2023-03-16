@@ -1,17 +1,10 @@
-const obj = {
-  name: 'why',
-  age: 18,
-  friends: {
-    name: 'kobe',
-  },
-  hobbies: ['篮球', '足球'],
-  foo: function () {
-    console.log('foo function')
-  },
-}
+const str =
+  '{"name":"why","age":18,"friends":{"name":"kobe"},"hobbies":["篮球","足球"]}';
 
-const obj6 = JSON.parse(JSON.stringify(obj))
-obj.name = 'djw'
-console.log(obj6.name)
-obj.friends.name = 'djw'
-console.log(obj6.friends.name)
+let strObj = JSON.parse(str, (key, value) => {
+  if (key === "age") {
+    return value - 1;
+  }
+  return value;
+});
+console.log(strObj);

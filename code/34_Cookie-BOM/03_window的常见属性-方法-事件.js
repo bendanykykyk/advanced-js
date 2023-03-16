@@ -23,22 +23,22 @@
 // }
 
 // 3.常见的事件
-window.onload = function() {
-  console.log("window窗口加载完毕~")
-}
+window.onload = function () {
+  console.log("window窗口加载完毕~");
+};
 
-window.onfocus = function() {
-  console.log("window窗口获取焦点~")
-}
+window.onfocus = function () {
+  console.log("window窗口获取焦点~");
+};
 
-window.onblur = function() {
-  console.log("window窗口失去焦点~")
-}
+window.onblur = function () {
+  console.log("window窗口失去焦点~");
+};
 
-const hashChangeBtn = document.querySelector("#hashchange")
-hashChangeBtn.onclick = function() {
-  location.hash = "aaaa"
-}
-window.onhashchange = function() {
-  console.log("hash发生了改变")
-}
+const hashChangeBtn = document.querySelector("#hashchange");
+hashChangeBtn.onclick = function () {
+  location.hash = "aaaa";
+};
+window.onhashchange = function () {
+  console.log("hash发生了改变");
+};

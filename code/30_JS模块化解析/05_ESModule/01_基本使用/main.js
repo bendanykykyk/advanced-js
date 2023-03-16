@@ -1,4 +1,4 @@
-import * as foo from './foo.js'
+import * as foo from "./foo.js";
 
-console.log(foo.name)
-console.log(foo.age)
+console.log(foo.name);
+console.log(foo.age);

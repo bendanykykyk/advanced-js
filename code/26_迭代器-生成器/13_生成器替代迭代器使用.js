@@ -1,79 +1,54 @@
-// 1.生成器来替代迭代器
-function* createArrayIterator(arr) {
-  // 3.第三种写法 yield* 可迭代对象;是第二种写法的语法糖
-  yield* arr
+// 1> 用generator替代iterator
 
-  // 2.第二种写法
-  // for (const item of arr) {
-  //   yield item
-  // }
-  // 1.第一种写法
-  // yield "abc" // { done: false, value: "abc" }
-  // yield "cba" // { done: false, value: "abc" }
-  // yield "nba" // { done: false, value: "abc" }
+// 原本
+function* createIterator(arr) {
+  for (let item of arr) {
+    yield item;
+  }
 }
 
-// const names = ["abc", "cba", "nba"]
-// const namesIterator = createArrayIterator(names)
+let iterator = createIterator([1, 2, 3]);
 
-// console.log(namesIterator.next())
-// console.log(namesIterator.next())
-// console.log(namesIterator.next())
-// console.log(namesIterator.next())
+// 测试
+// console.log(iterator.next());
+// console.log(iterator.next());
+// console.log(iterator.next());
+// console.log(iterator.next());
 
-// 2.创建一个函数, 这个函数可以迭代一个范围内的数字
-// 10 20
+// 2> 做一个范围可迭代器
 function* createRangeIterator(start, end) {
-  let index = start
-  while (index < end) {
-    yield index++
+  for (let i = start; i < end; i++) {
+    yield i;
   }
-
-  // let index = start
-  // return {
-  //   next: function() {
-  //     if (index < end) {
-  //       return { done: false, value: index++ }
-  //     } else {
-  //       return { done: true, value: undefined }
-  //     }
-  //   }
-  // }
 }
+let rangeIterator = createRangeIterator(10, 12);
 
-const rangeIterator = createRangeIterator(10, 20)
-console.log(rangeIterator.next())
-console.log(rangeIterator.next())
-console.log(rangeIterator.next())
-console.log(rangeIterator.next())
-console.log(rangeIterator.next())
+console.log(rangeIterator.next());
+console.log(rangeIterator.next());
+console.log(rangeIterator.next());
+console.log(rangeIterator.next());
+console.log(rangeIterator.next());
 
-// 3.class案例
+// 3> class 通过generator 实现Symbol.iterator
 class Classroom {
-  constructor(address, name, students) {
-    this.address = address
-    this.name = name
-    this.students = students
+  constructor(address, students) {
+    this.address = address;
+    this.students = students;
   }
-
-  entry(newStudent) {
-    this.students.push(newStudent)
+  enter(student) {
+    this.students.push(student);
   }
+  // foo = () => {
 
-  foo = () => {
-    console.log('foo function')
-  }
-
-  [Symbol.iterator] = function*() {
-    yield* this.students
-  }
-
-  // *[Symbol.iterator]() {
-  //   yield* this.students
   // }
+  *[Symbol.iterator]() {
+    for (let stu of this.students) {
+      yield stu;
+    } // => yield* this.students
+  }
 }
 
-const classroom = new Classroom('3幢', '1102', ['abc', 'cba'])
-for (const item of classroom) {
-  console.log(item)
+let classroom = new Classroom("三幢五单元", ["liming", "xiaohong", "lihua"]);
+for (let stu of classroom) {
+  console.log(stu);
 }

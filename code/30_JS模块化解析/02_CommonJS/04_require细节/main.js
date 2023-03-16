@@ -1,9 +1,9 @@
 // 情况一: 核心模块
-// const path = require("path")
-// const fs = require("fs")
-
-// path.resolve()
-// path.extname()
+const path = require("path");
+const fs = require("fs");
+// console.log(path.resolve());
+console.log(path.extname);
+// path.extname();
 
 // fs.readFile()
 
@@ -13,5 +13,5 @@
 
 // 情况三: X不是路径也不是核心模块
 // const axios = require('axios')
-
-console.log(module.paths)
+// 他是个数组，并且在当前以及上层目录后拼上了node_modules，这样当你使用了非核心模块，就会一层层往上去找
+console.log(module.paths);

@@ -1,18 +1,17 @@
 const promise = new Promise((resolve, reject) => {
-  reject('reject message')
-})
+  reject("reject message");
+});
 
-const newPromise = new Promise((resolve, reject) => {
-  reject('xxxxxxxx')
-})
+// const newPromise = new Promise((resolve, reject) => {
+//   reject("xxxxxxxx");
+// });
 promise
   .then((res) => {
-    console.log('res:', res)
+    console.log("res:", res);
   })
   .catch((err) => {
-    console.log('err:', err)
-    return newPromise
+    console.log("err:", err);
   })
-  .catch((err) => {
-    console.log('组合', err)
-  })
+  .finally(() => {
+    console.log("finally clean code");
+  });

@@ -11,17 +11,13 @@
 // }
 
 // 2.第二种方式: export 导出 和 声明分开
-const name = "why"
-const age = 18
+const name = "why";
+const age = 18;
 function foo() {
-  console.log("foo function")
+  console.log("foo function");
 }
 
-export {
-  name,
-  age,
-  foo
-}
+export {name, age, foo};
 
 // 3.第三种方式: 第二种导出时起别名
 // export {

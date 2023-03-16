@@ -2,7 +2,7 @@
   "name": "npmdemo",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/main.js", // 如果别人 import from 'npmdemo的入口',因为引入的人不知道你的入口在哪，所以可以在这里配一下
   "private": true,
   "scripts": {
     "why": "node ./scripts/why.js",

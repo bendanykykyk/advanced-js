@@ -9,9 +9,9 @@ const nums = [
   ],
   78,
   [55, 88],
-]
-const newNums = nums.flat()
-console.log(newNums)
+];
+const newNums = nums.flat();
+console.log(newNums);
 
 // const newNums2 = nums.flat(2)
 // console.log(newNums2)
@@ -29,21 +29,23 @@ console.log(newNums)
 // console.log(newNums4)
 
 // 3.flatMap的应用场景
-const messages = ['Hello World', 'hello lyh', 'my name is coderwhy']
+const messages = ["Hello World", "hello lyh", "my name is coderwhy"];
 const words1 = messages.map((item) => {
-  return item.split(' ')
-})
-console.log(words1) 
+  return item.split(" ");
+});
+console.log(words1);
 /* [
   [ 'Hello', 'World' ],
   [ 'hello', 'lyh' ],
   [ 'my', 'name', 'is', 'coderwhy' ]
 ]
 */
+
+// 这个flatMap 就是先flat再map
 const words = messages.flatMap((item) => {
-  return item.split(' ') 
-})
-console.log(words) 
+  return item.split(" ");
+});
+console.log(words);
 /*
 [
   'Hello', 'World',

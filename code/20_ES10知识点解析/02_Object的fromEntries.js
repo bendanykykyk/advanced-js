@@ -18,9 +18,8 @@
 // console.log(newObj)
 
 // 2.Object.fromEntries的应用场景
-const queryString = 'name=why&age=18&height=1.88'
-const queryParams = new URLSearchParams(queryString)
-console.log(queryParams)//{ 'name' => 'why', 'age' => '18', 'height' => '1.88' }
-const paramObj = Object.fromEntries(queryParams)
-console.log(paramObj) // { name: 'why', age: '18', height: '1.88' }
-
+const queryString = "name=why&age=18&height=1.88";
+const queryParams = new URLSearchParams(queryString);
+console.log(queryParams); //{ 'name' => 'why', 'age' => '18', 'height' => '1.88' }
+// const paramObj = Object.fromEntries(queryParams)
+// console.log(paramObj) // { name: 'why', age: '18', height: '1.88' }

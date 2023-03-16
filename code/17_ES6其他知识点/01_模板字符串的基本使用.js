@@ -1,12 +1,12 @@
 // ES6之前拼接字符串和其他标识符
-const name = 'why'
-const age = 18
-const height = 1.88
+const name = "why";
+const age = 18;
+const height = 1.88;
 function f() {
-  return 111111111
+  return 111111111;
 }
-console.log(`xxxxx${age * 2}`)
-console.log(`xxxxxxx${f()}`)
+console.log(`xxxxx${age * 2}`);
+console.log(`xxxxxxx${f()}`);
 // // console.log("my name is " + name + ", age is " + age + ", height is " + height)
 
 // // ES6提供模板字符串 ``

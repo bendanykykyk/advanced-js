@@ -1,11 +1,11 @@
 var obj = {
-  name: 'why',
+  name: "why",
   age: 18,
   height: 1.88,
-}
+};
 
-var { name: newName, age, height, address: newA = '北京' } = obj
-console.log(newName, age, height, newA)
+var {name: newName, age, height, address: newA = "北京"} = obj;
+console.log(newName, age, height, newA);
 // 对象的解构: {}
 // var { name, age, height } = obj
 // console.log(name, age, height)

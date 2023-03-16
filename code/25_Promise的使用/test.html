@@ -1,0 +1,36 @@
+<!--
+ * @Author: [yuuki]
+ * @Date: 2023-02-10 11:07:33
+ * @LastEditors: [you name]
+ * @LastEditTime: 2023-02-10 11:24:24
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document2</title>
+    <h2>你好</h2>
+  </head>
+  <body>
+    <script>
+      var browser = navigator.userAgent.toLowerCase();
+      let message = null;
+      if (browser.match(/Alipay/i) == "alipay") {
+        console.log("支付宝app的浏览器");
+        message = "支付宝";
+      } else if (browser.match(/MicroMessenger/i) == "micromessenger") {
+        console.log("微信app的浏览器");
+        message = "微信";
+      } else {
+        console.log("其它浏览器");
+        message = "陌生人";
+      }
+      document.write(message);
+    </script>
+    <!-- <script src="./14_Promise类方法-any.js"></script> -->
+    <!-- <script src="./23_手写Promise-race-any方法.js"></script> -->
+  </body>
+</html>

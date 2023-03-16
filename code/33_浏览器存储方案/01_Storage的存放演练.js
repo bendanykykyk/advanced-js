@@ -1,6 +1,6 @@
-const loginBtn = document.querySelector("button")
+const loginBtn = document.querySelector("button");
 
-loginBtn.onclick = function() {
-  localStorage.setItem("name", "localStorage")
-  sessionStorage.setItem("name", "sessionStorage")
-}
+loginBtn.onclick = function () {
+  localStorage.setItem("name", "localStorage");
+  sessionStorage.setItem("name", "sessionStorage");
+};

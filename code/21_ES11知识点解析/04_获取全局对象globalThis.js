@@ -8,7 +8,4 @@
 // console.log(global)
 
 // ES11
-console.log(globalThis) //在浏览器下是window；在node下是global
-
-
-
+console.log(globalThis); //在浏览器下是window；在node下是global

@@ -5,5 +5,5 @@
 // let/const他们是没有作用域提升
 // foo被创建出来了, 但是不能被访问
 // 作用域提升: 能提前被访问
-let foo
-console.log(foo)
+let foo;
+console.log(foo);

@@ -6,7 +6,7 @@
 // }
 
 function foo(type) {
-  console.log("foo函数开始执行")
+  console.log("foo函数开始执行");
 
   if (type === 0) {
     // 1.抛出一个字符串类型(基本的数据类型)
@@ -19,26 +19,27 @@ function foo(type) {
     // throw new HYError(-1001, "type不能为0~")
 
     // 4.提供了一个Error
-    // const err = new Error("type不能为0")
-    // err.name = "why"
-    // err.stack = "aaaa"
+    // const err = new Error("type不能为0");
+    // console.log(Object.getOwnPropertyNames(err));
+    // err.name = "why";
+    // err.stack = "aaaa"; // 调用栈
+    // throw err;
 
     // 5.Error的子类
-    const err = new TypeError("当前type类型是错误的~")
+    // const err = new TypeError("当前type类型是错误的~");
 
-    throw err
+    // throw err;
 
     // 强调: 如果函数中已经抛出了异常, 那么后续的代码都不会继续执行了
-    console.log("foo函数后续的代码")
+    console.log("foo函数后续的代码");
   }
 
-  console.log("foo函数结束执行")
+  console.log("foo函数结束执行");
 }
 
-foo(0)
+foo(0);
 
-console.log("后续的代码继续执行~")
-
+console.log("后续的代码继续执行~");
 
 // function test() {
 //   console.log("test")

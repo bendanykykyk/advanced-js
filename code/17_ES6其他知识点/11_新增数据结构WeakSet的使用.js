@@ -21,25 +21,25 @@
 // weakSet.add(obj)
 
 // 3.WeakSet的应用场景
-const personSet = new WeakSet()
+const personSet = new WeakSet();
 class Person {
   constructor() {
-    personSet.add(this)
+    personSet.add(this);
   }
 
   running() {
     if (!personSet.has(this)) {
-      throw new Error('不能通过非构造方法创建出来的对象调用running方法')
+      throw new Error("不能通过非构造方法创建出来的对象调用running方法");
     }
-    console.log('running~', this)
+    console.log("running~", this);
   }
 }
 
 const f = new FinalizationRegistry((value) => {
-  console.log(value + '对象销毁了')
-})
-let p = new Person()
-f.register(p, 'p')
+  console.log(value + "对象销毁了");
+});
+let p = new Person();
+f.register(p, "p");
 // p.running()
 // p.running.call({ name: 'why' })
-p = null
+p = null;

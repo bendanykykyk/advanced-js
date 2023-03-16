@@ -1,44 +1,67 @@
-const PENDING = 'pending'
-const RESOLVED = 'resolved'
-const REJECTED = 'rejected'
-
-class HYPromise {
-  constructor(fn) {
-    this.status = PENDING
-    this.val = undefined
-
-    const resolve = (val) => {
-      if (this.status == PENDING) {
-        this.status = RESOLVED
-        this.val = val
+const PROMISE_STATUS_PENDING = "pending";
+const PROMISE_STATUS_FULFILLED = "fulfilled";
+const PROMISE_STATUS_REJECTED = "rejected";
+class YKPromise {
+  constructor(executor) {
+    this.status = PROMISE_STATUS_PENDING;
+    this.value = undefined;
+    this.reason = undefined;
+    this.fulfilledCallbackFns = [];
+    this.rejectedCallbackFns = [];
+    const resolve = (value) => {
+      if (this.status === PROMISE_STATUS_PENDING) {
+        this.status = PROMISE_STATUS_FULFILLED;
+        // 微任务 也可以用settimeout 宏任务
         queueMicrotask(() => {
-          this.onresolved(this.val)
-        })
+          this.value = value;
+          // 如果不用queueMicrotask包裹，.then里的回调压根还没执行，就不知道这个是回调函数，所以会报not a function
+
+          this.fulfilledCallbackFns.forEach((fn) => {
+            fn(this.value);
+          });
+        });
       }
-    }
-    // Promise内部的resolve、reject方法
-    fn(resolve, reject)
+    };
+
+    const reject = (reason) => {
+      if (this.status === PROMISE_STATUS_PENDING) {
+        this.status = PROMISE_STATUS_REJECTED;
+
+        queueMicrotask(() => {
+          this.reason = reason;
+          this.rejectedCallbackFns.forEach((fn) => {
+            fn(this.reason);
+          });
+          // this.rejectedCallback(reason);
+        });
+      }
+    };
+    executor(resolve, reject);
   }
-  // 原型链上的方法
-  then(onresolved, onrejected) {
-    this.onresolved = onresolved
-    this.onrejected = onrejected
+  then(fulfilledCallback, rejectedCallback) {
+    this.fulfilledCallbackFns.push(fulfilledCallback);
+    this.rejectedCallbackFns.push(rejectedCallback);
   }
 }
 
-const p = new HYPromise((resolve, reject) => {
-  console.log('状态pending')
-  setTimeout(() => {
-    // resolve(1111)
-    reject(666)
-  }, 1000)
-})
+const promise = new YKPromise((resolve, reject) => {
+  resolve("123");
+});
 
-p.then(
+promise.then(
   (res) => {
-    console.log(res)
+    console.log(res);
   },
   (err) => {
-    console.log(err)
+    console.log(err);
   }
-)
+);
+
+promise.then(
+  (res) => {
+    console.log(res);
+  },
+  (err) => {
+    console.log(err);
+  }
+);

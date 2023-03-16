@@ -23,4 +23,4 @@
 {
   class Person {}
 }
-var p = new Person()
+var p = new Person();

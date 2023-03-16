@@ -10,25 +10,25 @@ class Shape {
 
 class Rectangle extends Shape {
   getArea() {
-    return 100
+    return 100;
   }
 }
 
 class Circle extends Shape {
   getArea() {
-    return 200
+    return 200;
   }
 }
 
-var r = new Rectangle()
-var c = new Circle()
+var r = new Rectangle();
+var c = new Circle();
 
 // 多态: 当对不同的数据类型执行同一个操作时, 如果表现出来的行为(形态)不一样, 那么就是多态的体现.
 function calcArea(shape: Shape) {
-  console.log(shape.getArea())
+  console.log(shape.getArea());
 }
 
-calcArea(r)
-calcArea(c)
+calcArea(r);
+calcArea(c);
 
-export {}
+export {};

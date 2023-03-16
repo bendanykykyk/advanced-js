@@ -1,0 +1,12 @@
+分浏览器和node执行js
+
+
+main script：注意new promise中的代码是同步的直接执行，.then属于微任务
+
+浏览器的话看宏任务和微任务就行
+宏任务 计时器，ajax
+
+微任务 .then
+
+node 环境的话就复杂一些了 遵循 mnotc 顺序执行 main script , nextTick,other microTask,timer,check
+(这里注意check 指 setImmediate)

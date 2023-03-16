@@ -1,14 +1,23 @@
-// const p1 = new Promise((resolve) => {
-//   resolve(666)
-// })
-// p1.then((res) => {
-//   console.log(res)
-//   return undefined
-// }).then((res) => {
-//   console.log(res)
-//   return undefined
-// })
-// // --------------
+// 21课视频
+class Promise {
+  constructor(executor) {
+    const resolve = (res) => {
+      console.log(res);
+      //   this.callback();
+    };
 
-const arr = []
-console.log(arr[0])
+    const reject = () => {};
+
+    executor(resolve, reject);
+  }
+
+  then(callback) {
+    this.callback = callback;
+  }
+}
+
+new Promise((resolve, reject) => {
+  resolve("芜湖");
+}).then((res) => {
+  console.log(res);
+});

@@ -9,47 +9,48 @@
 // 案例: 创建一个教室类, 创建出来的对象都是可迭代对象
 class Classroom {
   constructor(address, name, students) {
-    this.address = address
-    this.name = name
-    this.students = students
+    this.address = address;
+    this.name = name;
+    this.students = students;
   }
 
   entry(newStudent) {
-    this.students.push(newStudent)
+    this.students.push(newStudent);
   }
 
   [Symbol.iterator]() {
-    let index = 0
+    let index = 0;
     return {
       next: () => {
         if (index < this.students.length) {
-          return { done: false, value: this.students[index++] }
+          return {done: false, value: this.students[index++]};
         } else {
-          return { done: true, value: undefined }
+          return {done: true, value: undefined};
         }
       },
+      // 监听结束，了解一下
       return: () => {
-        console.log('迭代器提前终止了~')
+        console.log("迭代器提前终止了~");
         // return { done: true, value: undefined }
-        return { done: true }
+        return {done: true};
       },
-    }
+    };
   }
 }
 
-const classroom = new Classroom('3幢5楼205', '计算机教室', [
-  'james',
-  'kobe',
-  'curry',
-  'why',
-])
-classroom.entry('lilei')
+const classroom = new Classroom("3幢5楼205", "计算机教室", [
+  "james",
+  "kobe",
+  "curry",
+  "why",
+]);
+classroom.entry("lilei");
 
 for (const stu of classroom) {
-  console.log(stu)
-  if (stu === 'why') break
+  console.log(stu);
+  if (stu === "why") break;
 }
 
 function Person() {}
 
-Person.prototype[Symbol.iterator] = function () {}
+Person.prototype[Symbol.iterator] = function () {};

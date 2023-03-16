@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <input type="text" class="password" />
+    <button class="cancelBtn">取消</button>
+  </head>
+  <body>
+    <!-- <script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.js"></script> -->
+    <script src="./04.debounce-v4.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        let passwordInputEl = document.querySelector(".password");
+        // // 通过lodash
+        // const inputChange = _.debounce((e) => {
+        //   console.log(e.target.value);
+        // }, 2000);
+        // // 通过lodash
+        // const inputChange = _.throttle((e) => {
+        //   console.log(e.target.value);
+        // }, 2000);
+
+        //  3.自己写的v1-debounce
+        // const inputChange = debounce(function (e) {
+        //   console.log(e.target.value);
+        //   console.log(this);
+        //   // let i = 1;
+        //   // console.log(`网络请求${i++}次`);
+        // }, 2000);
+
+        //  4.自己写的v2-debounce 增加immediate
+        // const inputChange = debounce(
+        //   function (e) {
+        //     console.log(e.target.value);
+        //     console.log(this);
+        //     // let i = 1;
+        //     // console.log(`网络请求${i++}次`);
+        //   },
+        //   2000,
+        //   true
+        // );
+
+        // 5.增加取消功能
+        //   const inputChange = debounce(
+        //     function (e) {
+        //       console.log(e.target.value);
+        //       console.log(this);
+        //       // let i = 1;
+        //       // console.log(`网络请求${i++}次`);
+        //     },
+        //     4000,
+        //     false
+        //   );
+        //   passwordInputEl.addEventListener("input", inputChange);
+        //   let cancelBtn = document.querySelector(".cancelBtn");
+        //   cancelBtn.addEventListener("click", () => {
+        //     inputChange.cancel();
+        //   });
+        // });
+
+        //  6.回调
+        const inputChange = debounce(
+          function (e) {
+            console.log(e.target.value);
+            console.log(this);
+          },
+          2000,
+          false
+        );
+        passwordInputEl.addEventListener("input", inputChange);
+      });
+    </script>
+  </body>
+</html>

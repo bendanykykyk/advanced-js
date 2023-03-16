@@ -9,23 +9,24 @@
 // console.log(obj)
 
 // 2.ES6中Symbol的基本使用
-const s1 = Symbol()
-const s2 = Symbol()
+const s1 = Symbol();
+const s2 = Symbol();
 
-console.log(s1 === s2)
+console.log(s1 === s2);
 
 // ES2019(ES10)中, Symbol还有一个描述(description)
-const s3 = Symbol('aaa')
-console.log(s3.description)
+const s3 = Symbol("aaa");
+console.log(s3.description);
+
 // 3.Symbol值作为key
 // 3.1.在定义对象字面量时使用
 const obj = {
   a: 123,
-  [s1]: 'abc',
-  [s2]: 'cba',
-}
-console.log(Object.getOwnPropertyNames(obj))
-console.log(Object.getOwnPropertySymbols(obj))
+  [s1]: "abc",
+  [s2]: "cba",
+};
+console.log(Object.getOwnPropertyNames(obj));
+console.log(Object.getOwnPropertySymbols(obj));
 
 // // 3.2.新增属性
 // obj[s3] = 'nba'
